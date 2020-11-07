@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://localhost" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
 <head>
-    <title>Payment | 8-BLISS</title>
+    <title>Pagamento | E-ACCESS</title>
 </head>
 <body>
     <div layout:fragment="content">
@@ -9,17 +9,17 @@
             <div class="col-8">
                 <form th:action="@{/payment}" th:object="${paymentForm}" method="post">
                     <div class="row">
-                        <div class="col-12"><b>Payment Method</b></div>
+                        <div class="col-12"><b>Metodo de Pagamento</b></div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12">
-                            <input th:field="*{cardNumber}" class="form-control" type="text" placeholder="Card Number*"/>
+                            <input th:field="*{cardNumber}" class="form-control" type="text" placeholder="Número do Cartão*"/>
                             <p th:if="${#fields.hasErrors('cardNumber')}" th:errors="*{cardNumber}"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12">
-                            <input th:field="*{nameOnCard}" class="form-control" type="text" placeholder="Name on card*"/>
+                            <input th:field="*{nameOnCard}" class="form-control" type="text" placeholder="Nome do Cartão*"/>
                             <p th:if="${#fields.hasErrors('nameOnCard')}" th:errors="*{cardNumber}"/>
                         </div>
                     </div>
@@ -35,10 +35,10 @@
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <a href="/checkout">Return to customer information</a>
+                            <a href="/checkout">Retorno de Informacao</a>
                         </div>
                         <div class="col-6">
-                            <button type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">Complete order</button>
+                            <button type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">Ordem Completa</button>
                         </div>
                     </div>
                 </form>
@@ -53,24 +53,23 @@
                         <div th:text="${cartItem.key.name}"/>
                     </div>
                     <div class="col-2 text-right">
-                        <div>£<span th:text="${cartItem.key.price}"/></div>
+                        <div>R$<span th:text="${cartItem.key.price}"/></div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">Subtotal:</div>
-                    <div class="col-6 text-right">£<span th:text="${cart.subtotal}"/></div>
+                    <div class="col-6 text-right">R$<span th:text="${cart.subtotal}"/></div>
                 </div>
                 <div class="row">
-                    <div class="col-6">Shipping:</div>
-                    <div class="col-6 text-right">£<span th:text="${cart.shipping}"/></div>
+                    <div class="col-6">Frete:</div>
+                    <div class="col-6 text-right">R$<span th:text="${cart.shipping}"/></div>
                 </div>
                 <div class="row">
                     <div class="col-6"><b>Total:</b></div>
-                    <div class="col-6 text-right"><b>£<span th:text="${cart.total}"/></b></div>
+                    <div class="col-6 text-right"><b>R$<span th:text="${cart.total}"/></b></div>
                 </div>
             </div>
         </div>
     </div>
 </body>
 </html>
-<!--Copyright 2016-2018 Diffblue Limited. All rights reserved.-->

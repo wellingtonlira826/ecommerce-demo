@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://localhost" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
 <head>
-    <title>Checkout | 8-BLISS</title>
+    <title>Informacao de Compra | E-ACCESS</title>
 </head>
 <body>
     <div layout:fragment="content">
@@ -9,7 +9,7 @@
             <div class="col-8">
                 <form th:action="@{/checkout}" th:object="${customerForm}" method="post">
                     <div class="row">
-                        <div class="col-12"><b>Customer information</b></div>
+                        <div class="col-12"><b>Informacao do Cliente</b></div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12">
@@ -18,59 +18,59 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12"><b>Shipping Address</b></div>
+                        <div class="col-12"><b>Endereço</b></div>
                     </div>
                     <div class="form-group row">
                         <div class="col-6">
-                            <input th:field="*{firstName}" class="form-control" type="text" placeholder="First name" required="required"/>
+                            <input th:field="*{firstName}" class="form-control" type="text" placeholder="Primeiro Nome" required="required"/>
                             <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"/>
                         </div>
                         <div class="col-6">
-                            <input th:field="*{lastName}" class="form-control" type="text" placeholder="Last name" required="required"/>
+                            <input th:field="*{lastName}" class="form-control" type="text" placeholder="Último Nome" required="required"/>
                             <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12">
-                            <input th:field="*{shippingAddress.company}" class="form-control" type="text" placeholder="Company"/>
+                            <input th:field="*{shippingAddress.company}" class="form-control" type="text" placeholder="Compania"/>
                             <p th:if="${#fields.hasErrors('shippingAddress.company')}" th:errors="*{shippingAddress.company}"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12">
-                            <input th:field="*{shippingAddress.addressLine}" class="form-control" type="text" placeholder="Address*" required="required"/>
+                            <input th:field="*{shippingAddress.addressLine}" class="form-control" type="text" placeholder="Endereço*" required="required"/>
                             <p th:if="${#fields.hasErrors('shippingAddress.addressLine')}" th:errors="*{shippingAddress.addressLine}"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12">
-                            <input th:field="*{shippingAddress.city}" class="form-control" type="text" placeholder="City*" required="required"/>
+                            <input th:field="*{shippingAddress.city}" class="form-control" type="text" placeholder="Cidade*" required="required"/>
                             <p th:if="${#fields.hasErrors('shippingAddress.city')}" th:errors="*{shippingAddress.city}"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-6">
-                            <input th:field="*{shippingAddress.country}" class="form-control" type="text" placeholder="Country*"/>
+                            <input th:field="*{shippingAddress.country}" class="form-control" type="text" placeholder="País*"/>
                             <p th:if="${#fields.hasErrors('shippingAddress.country')}" th:errors="*{shippingAddress.country}"/>
                         </div>
                         <div class="col-6">
-                            <input th:field="*{shippingAddress.postcode}" class="form-control" type="text" placeholder="Postcode*" required="required"/>
+                            <input th:field="*{shippingAddress.postcode}" class="form-control" type="text" placeholder="Código Postal*" required="required"/>
                             <p th:if="${#fields.hasErrors('shippingAddress.postcode')}" th:errors="*{shippingAddress.postcode}"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12">
-                            <input th:field="*{phoneNumber}" class="form-control" type="text" placeholder="Phone*"/>
+                            <input th:field="*{phoneNumber}" class="form-control" type="text" placeholder="Telefone*"/>
                             <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"/>
 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <a href="/cart">Return to cart</a>
+                            <a href="/cart">Retornar ao Carrinho</a>
                         </div>
                         <div class="col-6">
-                            <button type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">Continue to payment</button>
+                            <button type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">Continuar para o pagamento</button>
                         </div>
                     </div>
                 </form>
@@ -86,28 +86,27 @@
                         <div th:text="${cartItem.key.size}"/>
                     </div>
                     <div class="col-2 text-right">
-                        <div>£<span th:text="${cartItem.key.price}"/></div>
+                        <div>R$<span th:text="${cartItem.key.price}"/></div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">Subtotal:</div>
-                    <div class="col-6 text-right">£<span th:text="${cart.subtotal}"/></div>
+                    <div class="col-6 text-right">R$<span th:text="${cart.subtotal}"/></div>
                 </div>
                 <div class="row">
                     <div class="col-6">Tax:</div>
-                    <div class="col-6 text-right">£<span th:text="${cart.tax}"/></div>
+                    <div class="col-6 text-right">R$<span th:text="${cart.tax}"/></div>
                 </div>
                 <div class="row">
-                    <div class="col-6">Shipping:</div>
-                    <div class="col-6 text-right">£<span th:text="${cart.shipping}"/></div>
+                    <div class="col-6">Frete:</div>
+                    <div class="col-6 text-right">R$<span th:text="${cart.shipping}"/></div>
                 </div>
                 <div class="row">
                     <div class="col-6"><b>Total:</b></div>
-                    <div class="col-6 text-right"><b>£<span th:text="${cart.total}"/></b></div>
+                    <div class="col-6 text-right"><b>R$<span th:text="${cart.total}"/></b></div>
                 </div>
             </div>
         </div>
     </div>
 </body>
 </html>
-<!--Copyright 2016-2018 Diffblue Limited. All rights reserved.-->

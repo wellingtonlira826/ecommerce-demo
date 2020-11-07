@@ -1,7 +1,5 @@
 package com.diffblue.demo.ecommerce.controllers;
 
-// Copyright 2016-2018 Diffblue Limited. All rights reserved.
-
 import com.diffblue.demo.ecommerce.Application;
 import com.diffblue.demo.ecommerce.EmptyCartException;
 import com.diffblue.demo.ecommerce.InvalidCartItemException;

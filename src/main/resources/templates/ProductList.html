@@ -16,7 +16,7 @@
                 <div><img th:src="@{/images/}+${product.photo}" th:alt="${product.category.name}" width="100%"/></div>
                 <div th:text="${product.category.name}"/>
                 <div><a th:href="@{/product/}+${product.id}" th:text="${product.collection.name}"/></div>
-                <div>£<span th:text="${product.price}"/></div>
+                <div>R$<span th:text="${product.price}"/></div>
                 <br/>
             </div>
         </div>
@@ -26,4 +26,3 @@
    </div>
 </body>
 </html>
-<!--Copyright 2016-2018 Diffblue Limited. All rights reserved.-->

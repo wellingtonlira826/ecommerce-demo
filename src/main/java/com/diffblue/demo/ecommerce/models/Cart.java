@@ -1,6 +1,5 @@
 package com.diffblue.demo.ecommerce.models;
 
-// Copyright 2016-2018 Diffblue Limited. All rights reserved.
 
 import java.util.HashMap;
 import java.util.Map;

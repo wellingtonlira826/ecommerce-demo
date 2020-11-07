@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://localhost" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorator="default">
 <head>
-    <title>Product Page | 8-BLISS</title>
+    <title>Produto Pagina | E-ACCESS</title>
 </head>
 <body>
     <div layout:fragment="content">
@@ -14,16 +14,18 @@
                 <form th:action="@{/addToCart}" th:object="${product}" method="post">
                     <input type="hidden" th:field="*{id}"/>
                       <select name="size" required="required">
-                        <option value="">-- Please select a size --</option>
-                        <option value="Child">Child</option>
-                        <option value="Adult">Adult</option>
+                        <option value="">-- Por favor selecione o tipo --</option>
+                        <option value="pequeno">Pequeno</option>
+                        <option value="medio">Médio</option>
+                        <option value="grande">Grande</option>
+                        <option value="outro">Outro</option>
                       </select>
-                    <button type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">Add to basket</button>
+                    <button type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">Adicionar ao Carrinho</button>
                 </form>
-                <div>Description<br/><span th:text="${product.description}"/></div>
+                <div>Descrição<br/><span th:text="${product.description}"/></div>
             </div>
         </div>
     </div>
 </body>
 </html>
-<!--Copyright 2016-2018 Diffblue Limited. All rights reserved.-->
+

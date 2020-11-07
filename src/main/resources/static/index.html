@@ -1,11 +1,31 @@
 <html xmlns:th="http://localhost" xmlns:layout="http://www.w3.org/1999/xhtml">
 <html>
   <head>
-    <title>8-BLISS</title>
+    <title>E-ACCESS</title>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/main.css" />
+    <script>
+      var recognition = new webkitSpeechRecognition();
+      recognition.continuous = true;
+      //recognition.interimResults = true;
+      function start(){
+        recognition.onresult = function(event) { 
+          console.log(event);
+          var output = document.getElementById("output");
+          output.innerHTML = "";
+          for(var i=0; i<event.results.length; i++){
+            output.innerHTML = output.innerHTML + event.results[i][0].transcript;
+            if(output.innerHTML.match(/piso/)){
+              window.location.replace("/ProductList/Piso tatil e Adesivos");
+            }
+            
+          }
+        }
+        recognition.start();
+      }
+    </script>
   </head>
-  <body>
+  <body onload="start();">
   <div id="wrapper">
     <nav class="navbar navbar-default fixed-top">
         <div class="container">
@@ -13,19 +33,18 @@
                 <a class="navbar-brand" href="/"><img src="/images/logo_1.png" alt="8-BLISS"/></a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/cart">My Cart</a></li>
+                <li><a href="/cart">Meu Carrinho</a></li>
             </ul>
         </div>
     </nav>
     <div class="container">
       <div class="row">
-        <div class="col-12"><a href="/ProductList/Stickers"><img src="/images/home_new.png" alt="New! Vinyl Stickers" width="100%"/></a></div>
-        <div class="col-12"><a href="/product/7"><img src="/images/home_featured.png" alt="Featured! Point and click t-shirt" width="100%"/></a></div>
+        <div class="col-12"><a href="/ProductList/Piso tatil e Adesivos"><img src="/images/home_new.png" alt="New! Vinyl Stickers" width="100%"/></a></div>
+        <div class="col-12"><a href="/product/8"><img src="/images/home_featured.png" alt="Featured! Point and click t-shirt" width="100%"/></a></div>
         <div class="col-12">
           <div class="row">
-            <div class="col-3"><a href="/ProductList/Apparel"><img src="/images/home_apparel.png" alt="Apparel" width="100%"/></a></div>
-            <div class="col-3"><a href="/ProductList/Pins"><img src="/images/home_enamel.png" alt="Enamel Pins" width="100%"/></a></div>
-            <div class="col-6"><a href="/ProductList/Prints"><img src="/images/home_art_prints.png" alt="Art Prints" width="100%"/></a></div>
+            
+	          <div style='display: none;' id = "output"></div>
           </div>
           </div>
         </div>
@@ -38,26 +57,23 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                   <ul class="navbar-nav navbar-right">
                     <li class="nav-item">
-                        <a class="nav-link" href="/ProductList">All</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/ProductList/Apparel">Apparel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/ProductList/Pins">Pins</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/ProductList/Stickers">Stickers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/ProductList/Prints">Prints</a>
-                    </li>
+                      <a class="nav-link active" href="/ProductList/">Tudo</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/ProductList/Buchas e Parafusos">Buchas e Parafusos</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/ProductList/Piso tatil e Adesivos">Piso tatil e Adesivos</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/ProductList/Alarme">Alarme</a>
+                  </li>
                 </ul>
             </div>
         </div>
         </nav>
         <div class="py-1 text-center bg-dark text-muted">
-          Copyright 2016-2018 Diffblue Limited. All rights reserved.
+          Copyright E-ACCESS 2020. All rights reserved.
         </div>
       </footer>
   </div>

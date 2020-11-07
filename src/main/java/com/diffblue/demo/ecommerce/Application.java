@@ -1,6 +1,5 @@
 package com.diffblue.demo.ecommerce;
 
-// Copyright 2016-2018 Diffblue Limited. All rights reserved.
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
